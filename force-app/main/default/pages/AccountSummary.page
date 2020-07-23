@@ -1,0 +1,47 @@
+<apex:page id="AccountSummary" standardController="Account">
+
+    <apex:pageBlock title="Account Details">
+        <apex:pageBlockSection >
+            <apex:outputField value="{! Account.Name }"/>
+            <apex:outputField value="{! Account.Phone }"/>
+            <apex:outputField value="{! Account.Industry }"/>
+            <apex:outputField value="{! Account.AnnualRevenue }"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+    <apex:pageBlock title="Contacts">
+        <apex:pageBlockTable value="{!Account.Contacts}" var="contact">
+            <apex:column value="{!contact.Name}"/>
+            <apex:column value="{!contact.Title}"/>
+            <apex:column value="{!contact.Phone}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+
+    <h1>Edit Account</h1>
+
+    <apex:form >
+
+        <p>Edit name</p>
+        <apex:inputField value="{! Account.Name }"/>
+
+        <apex:commandButton action="{! save }" value="Save" />
+
+    </apex:form>
+
+    <!--<apex:pageBlock title="Account Summary">
+        <apex:pageBlockSection>
+
+            {! Account.id} <br/>
+            Name: {! Account.Name } <br/>
+            Phone: {! Account.Phone } <br/>
+            Industry: {! Account.Industry } <br/>
+            Revenue: {! Account.AnnualRevenue } <br/>
+            Account owner: {! Account.Owner.Name } <br/>
+
+        </apex:pageBlockSection>
+    </apex:pageBlock>-->
+    <!--<apex:detail />-->
+
+    <!--<apex:relatedList list="Contacts"/>-->
+</apex:page>

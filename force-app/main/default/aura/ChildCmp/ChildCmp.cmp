@@ -1,0 +1,10 @@
+<aura:component >
+
+    <!-- Attributes -->
+    <aura:attribute name="message" type="String" />
+
+    <!-- Register Event -->
+    <aura:registerEvent name="sampleCmpEvent" type="c:CmpEvent"/>
+    <lightning:button label="{!v.message}" onclick="{!c.fireEvent}" />
+
+</aura:component>

@@ -1,0 +1,7 @@
+<!--
+ - Created by Manlik on 02.07.2020.
+ -->
+
+<apex:page id="AccountPDF" standardController="Account" renderAs="pdf">
+    {!Account.Name}
+</apex:page>

@@ -1,0 +1,19 @@
+<aura:component description="MyComp" implements="flexipage:availableForRecordHome">
+
+    <aura:attribute type="String" name="message" default="Hello Aura World"/>
+    <h2>{!v.message}</h2>
+
+    {! $Label.c.Hello_World}
+
+    <lightning:input name="input1" label="Enter some text" value="{!v.message}"/>
+
+    <aura:attribute name="messages" type="List" default="['You look nice today.', 'Great weather we\'re having.',
+            'How are you?']"/>
+    <aura:iteration items="{! v.messages}" var="item" indexVar="index">
+        <p>{! index+1}. {! item}</p>
+    </aura:iteration>
+
+    <lightning:button label="Test 1" onclick="{!c.handleClick}"/>
+
+    <lightning:button label="Test 2" onclick="{!c.handleClick}"/>
+</aura:component>

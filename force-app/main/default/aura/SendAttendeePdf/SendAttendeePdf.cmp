@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId"
+                controller="SendAttendeePDFController">
+    
+    <aura:attribute name="emailAddress" type="String" default="" />
+
+    <lightning:card title="{! $Label.c.Send_PDF}">
+        <aura:set attribute="actions">
+            <lightning:button label="{! $Label.c.Send_Email}" onclick="{! c.sendPDF}"
+                              variant="brand"
+                              disabled="{!empty(v.emailAddress)}"/>
+        </aura:set>
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem padding="around-small">
+                <lightning:input type="email" name="email1" 
+                                 value="{!v.emailAddress}" label="Email"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>
+
+<!--required="true"-->

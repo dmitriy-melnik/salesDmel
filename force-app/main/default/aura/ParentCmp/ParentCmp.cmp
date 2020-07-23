@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+
+    <aura:handler name="sampleCmpEvent" event="c:CmpEvent"
+                  action="{!c.handleCmpEvent}"/>
+
+    <aura:iteration items="['test', 'test1', 'test2']" var="item_i">
+        <c:ChildCmp message="{!item_i}" />
+    </aura:iteration>
+</aura:component>

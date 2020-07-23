@@ -1,0 +1,42 @@
+<apex:page standardController="Lesson__c" extensions="LessonAttendeePdfExtension" renderAs="pdf">
+
+    <h2>LOGO</h2>
+    <h2 style="text-align:center">
+        {! $Label.Lesson_Attendees}: {! lesson.Name}
+    </h2>
+
+    <table width="100%">
+        <tr>
+            <td>{! $Label.Course}: {! course.Name}</td>
+            <td>{! $Label.Teacher}: {! teacher.Name}</td>
+        </tr>
+        <tr>
+            <td>{! $Label.Start_Date_Time}: {! startDate}</td>
+        </tr>
+        <tr>
+            <td>{! $Label.End_Date_Time}: {! endDate}</td>
+        </tr>
+    </table>
+
+
+    <table width="100%" border="1">
+        <tr>
+            <td>#</td>
+            <td>{! $Label.Student_Name}</td>
+            <td>{! $Label.Is_Present}</td>
+            <td>{! $Label.Comment}</td>
+        </tr>
+
+        <apex:repeat var="i" value="{!lessonAttendeeKeySet}">
+
+            <tr>
+                <td>{! i}</td>
+                <td>{! lessonAttendeeMap[i].Student__r.Name}</td>
+                <td>{! IF(!lessonAttendeeMap[i].WillBeAbsent__c, "[]", "X")}</td>
+                <td></td>
+            </tr>
+
+        </apex:repeat>
+    </table>
+
+</apex:page>

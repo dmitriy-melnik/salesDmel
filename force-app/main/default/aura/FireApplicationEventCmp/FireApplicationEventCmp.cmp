@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes"
+                access="global" >
+
+    <!-- Attributes -->
+    <aura:attribute type="String" name="title" default="Simple Application Event Sample" />
+ 
+    <!-- Register events -->
+    <aura:registerEvent name="appEventTest" type="c:ApplicationEvent"/>
+
+    <lightning:card title="Simple Application Event Fire">
+
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small">
+                <h1>{!v.title}</h1>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:button label="Fire App event"
+                                  onclick="{!c.fireApplicationEvent}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+
+    </lightning:card>
+
+</aura:component>

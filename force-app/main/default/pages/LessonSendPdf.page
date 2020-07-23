@@ -1,0 +1,6 @@
+<apex:page standardController="Lesson__c" extensions="LessonSendPdfExtension" docType="html-5.0">
+    <apex:form >
+        <apex:inputText value="{! email}"/>
+        <apex:commandButton action="{! sendEmail}" value="{! $Label.Send_Email}"/>
+    </apex:form>
+</apex:page>

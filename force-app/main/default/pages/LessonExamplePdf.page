@@ -1,0 +1,26 @@
+<apex:page standardController="Lesson__c" extensions="LessonExamplePdfExtension" renderAs="pdf">
+    
+    <h3>Full List (by standard controller)</h3>
+    <ol>
+        <apex:repeat var="student_i" value="{!Lesson__c.LessonAttendees__r}">
+            <li>
+                {!student_i.Student__r.Name} - {!IF(!student_i.WillBeAbsent__c, "[+]", "[-]")}
+            </li>
+        </apex:repeat>
+    </ol>
+    
+    <br/>
+    
+
+    <h3>Strudents that will be present on lesson (by variable from extension)</h3>
+    <ol>
+        <apex:repeat var="student_i" value="{!lessonAttendeeList}">
+            <li>{!student_i.Student__r.Name}</li>
+            <li>
+                {!student_i.Student__r.Name} - {!IF(!student_i.WillBeAbsent__c, "[+]", "[-]")}
+            </li>
+        </apex:repeat>
+    </ol>
+    
+    
+</apex:page>
